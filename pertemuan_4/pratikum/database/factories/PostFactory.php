@@ -16,8 +16,13 @@ class PostFactory extends Factory
      */
     public function definition(): array
     {
+        $title = $this->faker->title();
+        $slug = $this->faker->slug();
         return [
-            //
+            'title' => $title,
+            'slug' => $slug,
+            'content' => $this->faker->realText(),
+            'draft' => random_int(0, 1),
         ];
     }
 }
