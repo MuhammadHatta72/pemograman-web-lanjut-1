@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Feature;
 use Illuminate\Http\Request;
 
 class PagesController extends Controller
@@ -18,7 +19,12 @@ class PagesController extends Controller
 
     public function features()
     {
-        return view('pages.features', ['active' => 'features']);
+        $features = Feature::all();
+        $data = [
+            'active' => 'features',
+            'features' => $features,
+        ];
+        return view('pages.features', $data);
     }
 
     public function contact()
