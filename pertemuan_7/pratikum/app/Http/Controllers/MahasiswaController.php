@@ -10,7 +10,7 @@ class MahasiswaController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index()
+    public function index(Request $request)
     {
         //fungsi eloquent menampilkan data menggunakan pagination
         // $mahasiswas = Mahasiswa::all(); // Mengambil semua isi tabel
@@ -18,7 +18,14 @@ class MahasiswaController extends Controller
         // return view('mahasiswas.index', compact('mahasiswas'))
         //     ->with('i', (request()->input('page', 1) - 1) * 5);
 
-        $mahasiswas = Mahasiswa::paginate(5);
+        $keyword = $request->input('Nama');
+
+        if ($keyword) {
+            $mahasiswas = Mahasiswa::where('Nama', 'like', '%' . $keyword . '%')->paginate(5);
+        } else {
+            $mahasiswas = Mahasiswa::paginate(5);
+        }
+
 
         return view('mahasiswas.index', ['mahasiswas' => $mahasiswas]);
     }
@@ -115,5 +122,9 @@ class MahasiswaController extends Controller
         // Mahasiswa::find($mahasiswa->Nim)->delete();
         $mahasiswa->delete();
         return redirect('mahasiswas')->with('success', 'Mahasiswa Berhasil Dihapus');
+    }
+
+    public function search(Request $request)
+    {
     }
 }

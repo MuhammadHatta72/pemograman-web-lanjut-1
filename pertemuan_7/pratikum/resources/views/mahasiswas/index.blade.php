@@ -4,7 +4,20 @@
 <div class="col-lg-12 margin-tb">
 <div class="pull-left mt-2">
 <h2>JURUSAN TEKNOLOGI INFORMASI-POLITEKNIK NEGERI MALANG</h2>
+
+<form action="" method="GET">
+    <div class="row">
+        <div class="col-8">
+          <input type="text" class="form-control" name="Nama" placeholder="Cari Nama Mahasiswa" aria-label="First name">
+        </div>
+        <div class="col-4">
+            <button class="btn btn-warning" type="submit">Cari</button>
+        </div>
+      </div>
+</form>
 </div>
+
+
 <div class="float-right my-2">
 <a class="btn btn-success" href="{{ route('mahasiswas.create') }}"> Input Mahasiswa</a>
 </div>
