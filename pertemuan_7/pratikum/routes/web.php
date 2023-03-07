@@ -19,4 +19,4 @@ Route::get('/', function () {
 });
 
 
-Route::resource('mahasiswa', MahasiswaController::class);
+Route::resource('mahasiswas', MahasiswaController::class);
