@@ -47,4 +47,6 @@
 </tr>
 @endforeach
 </table>
+
+{{ $mahasiswas->links() }}
 @endsection
