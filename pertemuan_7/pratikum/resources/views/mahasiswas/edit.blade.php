@@ -40,6 +40,14 @@ Edit Mahasiswa
     <label for="No_Handphone">No_Handphone</label>
     <input type="number" name="No_Handphone" class="form-control" id="No_Handphone" value="{{ $Mahasiswa->No_Handphone }}" ariadescribedby="No_Handphone" >
     </div>
+    <div class="form-group">
+    <label for="Email">Email</label>
+    <input type="email" name="Email" class="form-control" id="Email" value="{{ $Mahasiswa->Email }}" ariadescribedby="Email" >
+    </div>
+    <div class="form-group">
+    <label for="Tgl_Lahir">Tgl_Lahir</label>
+    <input type="date" name="Tgl_lahir" class="form-control" id="Tgl_Lahir" value="{{ $Mahasiswa->Tgl_lahir }}" ariadescribedby="Tgl_Lahir" >
+    </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     </div>

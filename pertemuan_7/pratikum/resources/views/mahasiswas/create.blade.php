@@ -40,6 +40,14 @@ nput.<br><br>
 <label for="No_Handphone">No_Handphone</label>
 <input type="No_Handphone" name="No_Handphone" class="form-control" id="No_Handphone" aria-describedby="No_Handphone" >
 </div>
+<div class="form-group">
+<label for="Email">Email</label>
+<input type="email" name="Email" class="form-control" id="Email" aria-describedby="Email" >
+</div>
+<div class="form-group">
+<label for="Tgl_Lahir">Tgl_Lahir</label>
+<input type="date" name="Tgl_lahir" class="form-control" id="Tgl_Lahir" aria-describedby="Tgl_Lahir" >
+</div>
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>
