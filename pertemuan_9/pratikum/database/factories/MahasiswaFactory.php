@@ -17,9 +17,8 @@ class MahasiswaFactory extends Factory
     public function definition(): array
     {
         return [
-            'Nim' => $this->faker->randomNumber(9),
             'Nama' => $this->faker->word(),
-            'Kelas' => $this->faker->text(10),
+            'kelas_id' => $this->faker->randomNumber(1),
             'Jurusan' => $this->faker->text(10),
             'No_Handphone' => $this->faker->phoneNumber(),
             'Email' => $this->faker->email(),

@@ -20,8 +20,10 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         $this->call([
+            // KelasSeeder::class,
             // MahasiswaSeeder::class,
-            MataKuliahSeeder::class,
+            // MataKuliahSeeder::class,
+            // MahasiswaMataKuliahSeeder::class
         ]);
     }
 }

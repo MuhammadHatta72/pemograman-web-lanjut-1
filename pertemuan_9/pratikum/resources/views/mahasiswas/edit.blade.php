@@ -17,13 +17,13 @@ Edit Mahasiswa
 </ul>
 </div>
 @endif
-<form method="post" action="{{ route('mahasiswas.update', $Mahasiswa->Nim) }}" id="myForm">
+<form method="post" action="{{ route('mahasiswas.update', $Mahasiswa->id) }}" id="myForm">
 @csrf
 @method('PUT')
-<div class="form-group">
+{{-- <div class="form-group">
     <label for="Nim">Nim</label>
-    <input type="text" name="Nim" class="form-control" id="Nim" value="{{ $Mahasiswa->Nim }}" ariadescribedby="Nim" >
-    </div>
+    <input type="text" name="Nim" class="form-control" id="Nim" value="{{ $Mahasiswa->id }}" ariadescribedby="Nim" >
+    </div> --}}
     <div class="form-group">
     <label for="Nama">Nama</label>
     <input type="text" name="Nama" class="form-control" id="Nama" value="{{ $Mahasiswa->Nama }}" ariadescribedby="Nama" >
@@ -43,7 +43,7 @@ Edit Mahasiswa
     </div>
     <div class="form-group">
     <label for="No_Handphone">No_Handphone</label>
-    <input type="number" name="No_Handphone" class="form-control" id="No_Handphone" value="{{ $Mahasiswa->No_Handphone }}" ariadescribedby="No_Handphone" >
+    <input type="text" name="No_Handphone" class="form-control" id="No_Handphone" value="{{ $Mahasiswa->No_Handphone }}" ariadescribedby="No_Handphone" >
     </div>
     <div class="form-group">
     <label for="Email">Email</label>

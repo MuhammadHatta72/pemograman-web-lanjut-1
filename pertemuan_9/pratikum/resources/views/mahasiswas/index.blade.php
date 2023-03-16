@@ -41,7 +41,7 @@
 </tr>
 @foreach ($mahasiswas as $Mahasiswa)
 <tr>
-<td>{{ $Mahasiswa->Nim }}</td>
+<td>{{ $Mahasiswa->id }}</td>
 <td>{{ $Mahasiswa->Nama }}</td>
 <td>{{ $Mahasiswa->kelas->nama_kelas }}</td>
 <td>{{ $Mahasiswa->Jurusan }}</td>
@@ -49,12 +49,13 @@
 <td>{{ $Mahasiswa->Email }}</td>
 <td>{{ $Mahasiswa->Tgl_lahir }}</td>
 <td>
-<form action="{{ route('mahasiswas.destroy',$Mahasiswa->Nim) }}" method="POST">
-<a class="btn btn-info" href="{{ route('mahasiswas.show',$Mahasiswa->Nim) }}">Show</a>
-<a class="btn btn-primary" href="{{ route('mahasiswas.edit',$Mahasiswa->Nim) }}">Edit</a>
+<form action="{{ route('mahasiswas.destroy',$Mahasiswa->id) }}" method="POST">
+<a class="btn btn-info" href="{{ route('mahasiswas.show',$Mahasiswa->id) }}">Show</a>
+<a class="btn btn-primary" href="{{ route('mahasiswas.edit',$Mahasiswa->id) }}">Edit</a>
 @csrf
 @method('DELETE')
 <button type="submit" class="btn btn-danger">Delete</button>
+<a class="btn btn-warning" href="{{ route('mahasiswas.nilai',$Mahasiswa->id) }}">Nilai</a>
 </form>
 </td>
 </tr>
