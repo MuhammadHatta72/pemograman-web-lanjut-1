@@ -75,6 +75,13 @@ class MahasiswaController extends Controller
         $mahasiswa->No_Handphone = $request->input('No_Handphone');
         $mahasiswa->Email = $request->input('Email');
         $mahasiswa->Tgl_lahir = $request->input('Tgl_lahir');
+        if ($request->hasFile('Foto')) {
+            $extension = $request->file('Foto')->getClientOriginalExtension();
+            $request->file('Foto')->move('storage/images/', $mahasiswa->Nama . '.' . $extension);
+            $mahasiswa->image_profile = $mahasiswa->Nama . '.' . $extension;
+        } else {
+            $mahasiswa->image_profile = 'default.png';
+        }
         $mahasiswa->save();
 
         $kelas = new Kelas;
@@ -83,6 +90,8 @@ class MahasiswaController extends Controller
         // fungsi associate() digunakan untuk menentukan kelas dari mahasiswa tersebut dengan menggunakan instance kelas yang sudah dibuat sebelumnya.
         $mahasiswa->kelas()->associate($kelas);
         $mahasiswa->save();
+
+        //upload image profile
 
         //jika data berhasil ditambahkan, akan kembali ke halaman utama
         return redirect()->route('mahasiswas.index')
@@ -172,6 +181,12 @@ class MahasiswaController extends Controller
     {
         //fungsi eloquent untuk menghapus data
         // Mahasiswa::find($mahasiswa->id)->delete();
+
+        //delete image profile mahasiswa
+        if ($mahasiswa->image_profile) {
+            unlink(public_path('storage/images/' . $mahasiswa->image_profile));
+        }
+
         $mahasiswa->delete();
         return redirect('mahasiswas')->with('success', 'Mahasiswa Berhasil Dihapus');
     }

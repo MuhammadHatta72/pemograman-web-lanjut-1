@@ -18,7 +18,7 @@ nput.<br><br>
 </ul>
 </div>
 @endif
-<form method="post" action="{{ route('mahasiswas.store') }}" id="myForm">
+<form method="post" action="{{ route('mahasiswas.store') }}" id="myForm" enctype="multipart/form-data">
 @csrf
 <div class="form-group">
 {{-- <label for="Nim">Nim</label>
@@ -53,6 +53,10 @@ nput.<br><br>
 <label for="Tgl_Lahir">Tgl_Lahir</label>
 <input type="date" name="Tgl_lahir" class="form-control" id="Tgl_Lahir" aria-describedby="Tgl_Lahir" >
 </div>
+<div class="form-group">
+    <label for="Foto">Foto Profil</label>
+    <input type="file" name="Foto" class="form-control" id="Foto" aria-describedby="Foto">
+    </div>
 <button type="submit" class="btn btn-primary">Submit</button>
 </form>
 </div>

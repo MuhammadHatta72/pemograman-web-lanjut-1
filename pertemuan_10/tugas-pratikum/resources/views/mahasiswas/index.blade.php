@@ -32,22 +32,24 @@
 <tr>
 <th>Nim</th>
 <th>Nama</th>
+<th>Foto</th>
 <th>Kelas</th>
 <th>Jurusan</th>
-<th>No_Handphone</th>
-<th>Email</th>
-<th>Tgl_Lahir</th>
 <th width="280px">Action</th>
 </tr>
 @foreach ($mahasiswas as $Mahasiswa)
 <tr>
 <td>{{ $Mahasiswa->id }}</td>
 <td>{{ $Mahasiswa->Nama }}</td>
+<td>
+  @if($Mahasiswa->image_profile)
+  <img width="100px" height="100px" src="{{ asset('storage/images/'.$Mahasiswa->image_profile) }}">
+  @else
+  <img width="100px" height="100px" src="{{ asset('images/default.png') }}">
+  @endif
+</td>
 <td>{{ $Mahasiswa->kelas->nama_kelas }}</td>
 <td>{{ $Mahasiswa->Jurusan }}</td>
-<td>{{ $Mahasiswa->No_Handphone }}</td>
-<td>{{ $Mahasiswa->Email }}</td>
-<td>{{ $Mahasiswa->Tgl_lahir }}</td>
 <td>
 <form action="{{ route('mahasiswas.destroy',$Mahasiswa->id) }}" method="POST">
 <a class="btn btn-info" href="{{ route('mahasiswas.show',$Mahasiswa->id) }}">Show</a>

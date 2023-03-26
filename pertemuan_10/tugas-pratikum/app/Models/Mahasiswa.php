@@ -18,7 +18,8 @@ class Mahasiswa extends Model
         'Jurusan',
         'No_Handphone',
         'Email',
-        'Tgl_lahir'
+        'Tgl_lahir',
+        'image_profile'
     ];
 
     public function kelas()

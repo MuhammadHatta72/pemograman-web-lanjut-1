@@ -24,6 +24,13 @@ Edit Mahasiswa
     <label for="Nim">Nim</label>
     <input type="text" name="Nim" class="form-control" id="Nim" value="{{ $Mahasiswa->id }}" ariadescribedby="Nim" >
     </div> --}}
+    <div>
+        @if($Mahasiswa->image_profile)
+        <img src="{{ asset('images/'.$Mahasiswa->image_profile) }}" width="150px" height="150px" alt="">
+        @else
+        <img src="{{ asset('images/default.png') }}" width="150px" height="150px" alt="">
+        @endif
+    </div>
     <div class="form-group">
     <label for="Nama">Nama</label>
     <input type="text" name="Nama" class="form-control" id="Nama" value="{{ $Mahasiswa->Nama }}" ariadescribedby="Nama" >
@@ -53,6 +60,10 @@ Edit Mahasiswa
     <label for="Tgl_Lahir">Tgl_Lahir</label>
     <input type="date" name="Tgl_lahir" class="form-control" id="Tgl_Lahir" value="{{ $Mahasiswa->Tgl_lahir }}" ariadescribedby="Tgl_Lahir" >
     </div>
+    <div class="form-group">
+        <label for="Foto">Foto Profil</label>
+        <input type="file" name="Foto" class="form-control" id="Foto" aria-describedby="Foto" >
+        </div>
     <button type="submit" class="btn btn-primary">Submit</button>
     </form>
     </div>
