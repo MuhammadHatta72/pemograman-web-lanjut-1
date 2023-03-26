@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Article;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Storage;
+use PDF as PDF;
 
 class ArticleController extends Controller
 {
@@ -37,7 +38,7 @@ class ArticleController extends Controller
                 'content' => $request->content,
                 'featured_image' => $image_name,
             ]);
-            return view('articles.create');
+            return view('articles');
         } else {
             return view('articles.create');
         }
@@ -82,6 +83,15 @@ class ArticleController extends Controller
      */
     public function destroy(Article $article)
     {
-        //
+        Storage::delete('public/' . $article->featured_image);
+        $article->delete();
+        return redirect('/articles');
+    }
+
+    public function print_pdf()
+    {
+        $articles = Article::all();
+        $pdf = PDF::loadview('articles.articles_pdf', ['articles' => $articles]);
+        return $pdf->stream();
     }
 }

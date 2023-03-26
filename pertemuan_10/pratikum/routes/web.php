@@ -19,3 +19,4 @@ Route::get('/', function () {
 });
 
 Route::resource('articles', ArticleController::class);
+Route::get('print_article', [ArticleController::class, 'print_pdf']);

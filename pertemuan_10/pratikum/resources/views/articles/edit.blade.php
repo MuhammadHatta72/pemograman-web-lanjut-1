@@ -1,6 +1,7 @@
 @extends('layout')
 @section('content')
-<div class="container">
+<div class="container mt-4">
+<h3>Edit Data Article</h3>
 <form action="/articles/{{$article->id}}" method="post"enctype="multipart/form-data">
 @csrf
 @method('put')
@@ -18,6 +19,7 @@
 <img width="150px" src="{{asset('storage/'.$article->featured_image)}}">
 </div>
 <button type="submit" class="btn btn-primary float-right">Ubah Data</button>
+<a href="/articles" class="btn btn-danger">Kembali</a>
 </form>
 </div>
 @endsection

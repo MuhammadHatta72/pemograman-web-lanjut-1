@@ -1,6 +1,8 @@
 @extends('layout')
 @section('content')
-<div class="container">
+<div class="container mt-4">
+<h3>Data Article</h3>
+<a href="/articles/create" class="btn btn-primary my-3">Tambah Data</a>
 <table class="table table-bordered">
 <thead>
 <tr>
@@ -30,5 +32,6 @@
 @endforeach
 </tbody>
 </table>
+<a href="print_article" class="btn btn-danger" target="_blank">CETAK PDF</a>
 </div>
 @endsection
