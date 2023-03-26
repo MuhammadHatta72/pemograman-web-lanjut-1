@@ -7,6 +7,13 @@
 Detail Mahasiswa
 </div>
 <div class="card-body">
+    <div>
+        @if($Mahasiswa->image_profile)
+        <img src="{{ asset('storage/images/'.$Mahasiswa->image_profile) }}" width="150px" height="150px" alt="">
+        @else
+        <img src="{{ asset('images/default.png') }}" width="150px" height="150px" alt="">
+        @endif
+    </div>
     <ul class="list-group list-group-flush">
     <li class="list-group-item"><b>Nim: </b>{{$Mahasiswa->id}}</li>
     <li class="list-group-item"><b>Nama: </b>{{$Mahasiswa->Nama}}</li>

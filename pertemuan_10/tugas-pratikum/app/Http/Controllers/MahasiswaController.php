@@ -7,6 +7,7 @@ use App\Models\Kelas;
 use App\Models\Mahasiswa_MataKuliah;
 use App\Models\MataKuliah;
 use Illuminate\Http\Request;
+use PDF as PDF;
 
 class MahasiswaController extends Controller
 {
@@ -197,5 +198,12 @@ class MahasiswaController extends Controller
         $mahasiswa = Mahasiswa::with('kelas')->find($id);
         // $matakuliah = Mahasiswa_MataKuliah::with('mahasiswas')->with('matakuliahs')->where('id_mahasiswa', $id)->get();
         return view('mahasiswas.nilai', compact('mahasiswa_matakuliah', 'mahasiswa'));
+    }
+    public function printValue($id)
+    {
+        $mahasiswa_matakuliah = Mahasiswa_MataKuliah::with('matakuliahs')->where('id_mahasiswa', $id)->get();
+        $mahasiswa = Mahasiswa::with('kelas')->find($id);
+        $pdf = PDF::loadview('mahasiswas.nilai_pdf', ['mahasiswa' => $mahasiswa, 'mahasiswa_matakuliah' => $mahasiswa_matakuliah]);
+        return $pdf->stream();
     }
 }

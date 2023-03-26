@@ -26,7 +26,7 @@ Edit Mahasiswa
     </div> --}}
     <div>
         @if($Mahasiswa->image_profile)
-        <img src="{{ asset('images/'.$Mahasiswa->image_profile) }}" width="150px" height="150px" alt="">
+        <img src="{{ asset('storage/images/'.$Mahasiswa->image_profile) }}" width="150px" height="150px" alt="">
         @else
         <img src="{{ asset('images/default.png') }}" width="150px" height="150px" alt="">
         @endif

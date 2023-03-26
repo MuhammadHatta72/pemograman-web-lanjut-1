@@ -9,7 +9,7 @@
 
 </div>
 </div>
-<p>NIM : {{$mahasiswa->id_mahasiswa}}</p>
+<p>NIM : {{$mahasiswa->id}}</p>
 <p>Nama : {{$mahasiswa->Nama}}</p>
 <p>Kelas : {{$mahasiswa->kelas->nama_kelas}}</p>
 
@@ -32,4 +32,5 @@
 
 </table>
 <a href="{{ route('mahasiswas.index') }}" class="btn btn-primary">Kembali</a>
+<a href="{{ route('mahasiswas.printvalue', $mahasiswa->id) }}" class="btn btn-danger float-right">Cetak PDF</a>
 @endsection
