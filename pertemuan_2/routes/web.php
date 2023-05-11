@@ -36,11 +36,11 @@ Route::get('/about', function () {
 //     adalah " . $id . ".</h1>";
 // });
 
-Route::group('admin', function () {
-    Route::get('articles', function () {
-        return "Halaman untuk mencetak pdf";
-    });
-    Route::get('articles1', function () {
-        return "Halaman untuk mencetak word";
-    });
-});
+// Route::group('admin', function () {
+//     Route::get('articles', function () {
+//         return "Halaman untuk mencetak pdf";
+//     });
+//     Route::get('articles1', function () {
+//         return "Halaman untuk mencetak word";
+//     });
+// });
